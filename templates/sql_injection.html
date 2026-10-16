@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulnLab | SQL Injection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <a class="logo" href="/">Vuln<span>Lab</span></a>
+        <span class="status">● LABORATÓRIO LOCAL</span>
+    </header>
+
+    <main class="container">
+        <p class="eyebrow">LAB_01 / SQL INJECTION</p>
+        <h1>Teste de <span>autenticação</span></h1>
+
+        {% if modo == "vulneravel" %}
+            <p class="description">
+                Modo vulnerável: a consulta SQL concatena os dados digitados.
+            </p>
+        {% else %}
+            <p class="description">
+                Modo seguro: a consulta SQL utiliza parâmetros.
+            </p>
+        {% endif %}
+
+        <form method="POST" class="lab-card">
+            <label for="usuario">Usuário de teste</label>
+            <input id="usuario" name="usuario" type="text"
+                   maxlength="100" required autocomplete="off">
+
+            <label for="senha">Senha fictícia</label>
+            <input id="senha" name="senha" type="password"
+                   maxlength="100" required>
+
+            <button type="submit">Testar login</button>
+        </form>
+
+        {% if mensagem %}
+            <div class="result">
+                <strong>Resultado do teste</strong>
+                <p>{{ mensagem }}</p>
+            </div>
+        {% endif %}
+
+        {% if diagnostico %}
+            <div class="result">
+                <strong>Diagnóstico</strong>
+                <p>{{ diagnostico }}</p>
+            </div>
+        {% endif %}
+
+        <section class="labs">
+            <article class="lab-card">
+                <h2>Modo vulnerável</h2>
+                <p>Observe como a construção insegura da consulta pode
+                   mudar sua interpretação.</p>
+                <a href="/sql-injection">Abrir modo vulnerável</a>
+            </article>
+
+            <article class="lab-card">
+                <h2>Modo seguro</h2>
+                <p>Compare com a consulta parametrizada, que trata a
+                   entrada como dado.</p>
+                <a href="/sql-injection-seguro">Abrir modo seguro</a>
+            </article>
+        </section>
+
+        <p class="notice">
+            Ambiente educativo local. Utilize somente as contas fictícias
+            do laboratório.
+        </p>
+    </main>
+</body>
+</html>

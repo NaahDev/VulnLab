@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulnLab | Laboratório de Segurança</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <a class="logo" href="/">Vuln<span>Lab</span></a>
+        <span class="status">● AMBIENTE LOCAL</span>
+    </header>
+
+    <main class="container">
+        <p class="eyebrow">WEB SECURITY TRAINING ENVIRONMENT</p>
+
+        <h1>Entenda as vulnerabilidades.<br>
+            <span>Aprenda a se proteger.</span>
+        </h1>
+
+        <p class="description">
+            Um laboratório prático para estudar falhas de segurança web,
+            testar cenários controlados e aprender a implementar correções.
+        </p>
+
+        <section class="labs">
+            <article class="lab-card">
+                <span class="lab-number">LAB_01</span>
+                <h2>SQL Injection</h2>
+                <p>Entenda como consultas SQL inseguras podem permitir
+                   que entradas alterem a lógica de uma consulta.</p>
+                <a href="/sql-injection">Abrir laboratório →</a>
+            </article>
+
+            <article class="lab-card">
+                <span class="lab-number">LAB_02</span>
+                <h2>Cross-Site Scripting (XSS)</h2>
+                <p>Aprenda como entradas exibidas sem tratamento adequado
+                   podem executar conteúdo inesperado no navegador.</p>
+                <span class="tag">EM DESENVOLVIMENTO</span>
+            </article>
+        </section>
+
+        <p class="notice">
+            ⚠ Este ambiente é educativo. Execute os testes somente no
+            laboratório local, com dados fictícios.
+        </p>
+    </main>
+
+    <footer>
+        VulnLab <span>— Aprender. Testar. Corrigir.</span>
+    </footer>
+</body>
+</html>
